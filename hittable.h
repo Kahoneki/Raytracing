@@ -4,9 +4,9 @@
 #include "ray.h"
 
 struct hit_record {
-    point3 p;
+    point3 p; //hitpoint
     vec3 normal;
-    double t;
+    double t; //distance along ray
 };
 
 class hittable {
