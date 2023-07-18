@@ -7,6 +7,9 @@ struct hit_record {
     point3 p; //hitpoint
     vec3 normal;
     double t; //distance along ray
+    bool front_face;
+
+    void set_face_normal(const ray& r, const vec3& outward_normal);
 };
 
 class hittable {
