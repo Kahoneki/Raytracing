@@ -11,6 +11,7 @@ bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& re
             hit_anything = true;
             closest_so_far = temp_rec.t;
             rec = temp_rec;
+            // std::cerr << temp_rec.normal << std::endl;
         }
     }
     return hit_anything;
@@ -20,6 +21,7 @@ bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& re
 void hittable_list::clear() {
     objects.clear();
 }
+
 
 void hittable_list::add(shared_ptr<hittable> object) {
     objects.push_back(object);

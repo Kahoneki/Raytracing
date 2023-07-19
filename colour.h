@@ -4,6 +4,6 @@
 #include "vec3.h"
 #include <iostream>
 
-void write_colour(std::ostream &out, colour pixel_colour);
+void write_colour(std::ostream &out, colour pixel_colour, int samples_per_pixel);
 
 #endif
