@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-using std::sqrt;
-
 class vec3 {
     public:
         vec3() : e{0,0,0} {};
@@ -20,7 +18,7 @@ class vec3 {
         double& operator[](int i) {return e[i];}
 
         //Object utility functions
-        vec3 operator-() const {return vec3(-e[0], -e[1], -e[2]);}
+        vec3 operator-() const;
         vec3& operator+=(const vec3&v);
         vec3& operator*=(const double t);
         vec3& operator/=(const double t);

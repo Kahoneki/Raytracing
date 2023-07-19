@@ -1,5 +1,5 @@
 #include "vec3.h"
-
+#include <cmath>
 
 //Object utility functions
 vec3& vec3::operator+=(const vec3 &v) { //parameter being a reference to the actual object saves us from making a copy, this is fine to do because we aren't modifying v (its const)
@@ -25,7 +25,7 @@ vec3& vec3::operator/=(const double t) {
 }
 
 double vec3::length() const {
-    return sqrt(length_squared());
+    return std::sqrt(length_squared());
 }
 
 double vec3::length_squared() const {

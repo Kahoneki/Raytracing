@@ -1,5 +1,7 @@
 #include "sphere.h"
 
+#include <cmath>
+
 bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
     vec3 oc = r.origin() - center;
     auto a = r.direction().length_squared();
@@ -7,7 +9,7 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec) cons
     auto c = oc.length_squared() - radius*radius;
     auto discriminant = half_b*half_b - a*c;
     if (discriminant < 0) return false;
-    auto sqrtd = sqrt(discriminant);
+    auto sqrtd = std::sqrt(discriminant);
 
     //Find the nearest root that lies in the acceptable range.
     auto root = (-half_b - sqrtd) / a;
