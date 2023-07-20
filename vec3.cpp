@@ -1,4 +1,5 @@
 #include "vec3.h"
+#include "random.h"
 #include <cmath>
 
 //Object utility functions
@@ -64,6 +65,7 @@ vec3 operator/(vec3 v, double t) {
     return (1/t) * v;
 }
 
+
 double dot(const vec3 &u, const vec3 &v) {
     return u.x() * v.x()
          + u.y() * v.y()
@@ -78,4 +80,23 @@ vec3 cross(const vec3 &u, const vec3 &v) {
 
 vec3 unit_vector(vec3 v) {
     return v / v.length();
+}
+
+
+vec3 random() {
+    return vec3(random_double(), random_double(), random_double());
+}
+
+vec3 random(double min, double max) {
+    return vec3(random_double(min,max), random_double(min,max), random_double(min,max));
+}
+
+//Rejection method (kinda gross)
+vec3 random_in_unit_sphere() {
+    while (true) {
+        auto p = random(-1,1);
+        if (p.length_squared() >= 1)
+            continue;
+        return p;
+    }
 }
