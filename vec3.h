@@ -8,14 +8,17 @@ class vec3 {
         vec3() : e{0,0,0} {};
         vec3(double e0, double e1, double e2) : e{e0,e1,e2} {}
     
+
         //Getters
         double x() const {return e[0];}
         double y() const {return e[1];}
         double z() const {return e[2];}
         double operator[](int i) const {return e[i];}
 
+
         //Setters
         double& operator[](int i) {return e[i];}
+
 
         //Object utility functions
         vec3 operator-() const;
@@ -24,6 +27,9 @@ class vec3 {
         vec3& operator/=(const double t);
         double length() const;
         double length_squared() const;
+
+        bool near_zero() const;
+
 
     private:
         double e[3];
@@ -42,6 +48,7 @@ vec3 operator/(vec3 v, double t);
 double dot(const vec3 &u, const vec3 &v);
 vec3 cross(const vec3 &u, const vec3 &v);
 vec3 unit_vector(vec3 v);
+vec3 reflect(const vec3& v, const vec3& n);
 
 vec3 random();
 vec3 random(double min, double max);

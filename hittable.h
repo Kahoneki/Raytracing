@@ -2,10 +2,14 @@
 #define HITTABLE_H
 
 #include "ray.h"
+#include <memory>
+
+class material;
 
 struct hit_record {
     point3 p; //hitpoint
     vec3 normal;
+    std::shared_ptr<material> mat_ptr; //will be set to the material of the object that the ray hits
     double t; //distance along ray
     bool front_face;
 
