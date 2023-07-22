@@ -48,7 +48,9 @@ vec3 operator/(vec3 v, double t);
 double dot(const vec3 &u, const vec3 &v);
 vec3 cross(const vec3 &u, const vec3 &v);
 vec3 unit_vector(vec3 v);
+
 vec3 reflect(const vec3& v, const vec3& n);
+vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat);
 
 vec3 random();
 vec3 random(double min, double max);

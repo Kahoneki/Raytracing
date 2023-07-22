@@ -33,4 +33,18 @@ class metal : public material {
         double fuzz;
 };
 
+
+class dielectric : public material {
+    public:
+        dielectric(double index_of_refraction) : ir(index_of_refraction) {}
+
+        virtual bool scatter (const ray& r_in, hit_record& rec, colour& attenuation, ray& scattered) const override;
+    
+    public:
+        double ir; //Index of refraction
+
+    private:
+        static double reflectance(double cosine, double ref_idx);
+};
+
 #endif
