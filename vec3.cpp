@@ -128,11 +128,21 @@ vec3 random_unit_vector() {
     return unit_vector(random_in_unit_sphere());
 }
 
-//Hemispherical scattering - better formula
+//Hemispherical scattering
 vec3 random_in_hemisphere(const vec3& normal) {
     vec3 in_unit_sphere = random_in_unit_sphere();
     if (dot(in_unit_sphere, normal) > 0.0)
         return in_unit_sphere;
     else
         return -in_unit_sphere;
+}
+
+//Rejection method (kinda gross)
+vec3 random_in_unit_disk() {
+    while (true) {
+        auto p = vec3(random_double(-1,1), random_double(-1,1), 0);
+        if (p.length_squared() >= 1)
+            continue;
+        return p;
+    }
 }

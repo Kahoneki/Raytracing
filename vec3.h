@@ -57,6 +57,7 @@ vec3 random(double min, double max);
 vec3 random_in_unit_sphere();
 vec3 random_unit_vector();
 vec3 random_in_hemisphere(const vec3& normal);
+vec3 random_in_unit_disk();
 
 
 //Type aliases for vec3
